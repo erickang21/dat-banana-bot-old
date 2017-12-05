@@ -26,6 +26,26 @@ async def on_ready():
 async def readycheck(ctx):
     """I dare you to guess. I mean, like, to see if I'm working."""
     await ctx.send("You were wrong! Looks like I AM working!")
+
+    
+@bot.command(name='presence')
+@commands.is_owner()
+async def _set(ctx, Type=None,*,thing=None):
+  """Tell me what I'm doing and I'll show it."""
+  if Type is None:
+    await ctx.send('Butter do it right. Usage: `*presence [game/stream] [message]`')
+  else:
+    if Type.lower() == 'stream':
+      await bot.change_presence(game=discord.game(name=thing,type=1,url='https://www.twitch.tv/a'),status='online')
+      await ctx.send(f'Set presence to. `Streaming {thing}`')
+    elif Type.lower() == 'game':
+      await bot.change_presence(game=discord.game(name=thing))
+      await ctx.send(f'Set presence to `Playing {thing}`')
+    elif Type.lower() == 'clear':
+      await bot.change_presence(game=None)
+      await ctx.send('Cleared Presence')
+    else:
+      await ctx.send('Usage: `.presence [game/stream] [message]`')
     
     
 @bot.command()
