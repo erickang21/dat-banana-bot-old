@@ -79,6 +79,12 @@ async def invite(ctx):
     await ctx.send("Allow me to join the hood: https://discordapp.com/oauth2/authorize?client_id=387706175770198023&scope=bot&permissions=8")        
         
         
+@bot.command()
+async def discord(ctx):
+    """Join our Discord server!"""
+    await ctx.send("Your turn to enter the hood. https://discord.gg/wvkVknA")
+        
+        
 @bot.command(pass_context=True, hidden=True, name='eval')
 @commands.is_owner()
 async def _eval(ctx, *, body: str):
