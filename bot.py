@@ -59,7 +59,7 @@ async def ping(ctx):
     
 @bot.command()
 async def add(ctx, num: int, num2: int):
-    '''Becomes smart and adds 2 numbers.'''
+    '''It...ADDS? Yea. Usage: *add [no.1] [no.2]'''
     if num is None:
         await ctx.send("Aren't you stupid enough? Usage: *add [no.1] [no.2]")
     else:
