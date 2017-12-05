@@ -38,6 +38,19 @@ async def readycheck(ctx):
         await ctx.send(embed=em)
         
         
+@bot.command()
+async def say(ctx, *, message: str):
+    '''Yea, yea. I'll say what you say.'''
+    await ctx.message.delete()
+    await ctx.send(message)        
+        
+        
+@bot.command()
+async def invite(ctx):
+    """Lemme in your server, mate. From here."""
+    await ctx.send("Allow me to join the hood: https://discordapp.com/oauth2/authorize?client_id=387706175770198023&scope=bot&permissions=8")        
+        
+        
 @bot.command(pass_context=True, hidden=True, name='eval')
 @commands.is_owner()
 async def _eval(ctx, *, body: str):
