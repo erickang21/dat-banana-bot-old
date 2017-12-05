@@ -55,7 +55,12 @@ async def ping(ctx):
     em.title = "PoIIIIng! That took:"
     em.description = f'{bot.ws.latency * 1000:.4f} ms'
     await ctx.send(embed=em)
-        
+
+    
+@bot.command()
+async def add(ctx, num: int, num2: int):
+    await ctx.send(All done :nerd: : num + num2)    
+    
         
 @bot.command()
 async def say(ctx, *, message: str):
