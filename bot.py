@@ -29,7 +29,7 @@ async def readycheck(ctx):
     await ctx.send("You were wrong! Looks like I AM working!")
     
     
-@commands.command()
+@bot.command()
     async def ping(ctx):
         """Websocket latency, delivered through premium ping pong."""
         em = discord.Embed(color=discord.Color(value=0x00ff00))
