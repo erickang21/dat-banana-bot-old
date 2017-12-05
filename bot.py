@@ -70,6 +70,43 @@ async def invite(ctx):
     await ctx.send("Allow me to join the hood: https://discordapp.com/oauth2/authorize?client_id=387706175770198023&scope=bot&permissions=8")        
         
         
+@commands.command(aliases=['calc', 'maths'])
+async def calculate(ctx):
+    """Let the bot become a mathematician."""
+        person = ctx.message.author
+        user = ctx.author
+
+        if formula == None:
+            msg = f'\u200BUsage: `{ctx.prefix}{ctx.invoked_with} [any maths formula]`'
+            e = discord.Embed()
+               e = discord.Embed(color=discord.Color(value=0x00ff00))
+            await ctx.send(embed=e)
+            return
+
+        try:
+            answer=self.nsp.eval(formula)
+        except:
+            msg = f'\N{THINKING FACE} wrong {formula} input.\nTry any of these:'
+            e = discord.Embed()
+            e.color = await discord.Embed(color=discord.Color(value=0x00ff00))
+            e.description = f'\u200B{msg}'
+            e.add_field(name='multiplication', value="`num` * `num`", inline=True)
+            e.add_field(name='division', value="`num` / `num`", inline=True)
+            e.add_field(name='addition', value="`num` + `num`", inline=True)
+            e.add_field(name='rest', value="`num` - `num`", inline=True)
+            e.add_field(name='exponential', value="`num` ^ `num`")
+            e.add_field(name='integer', 
+                        value="[`num` + `num` | `num` - `num`] `num` 0 `num`..`num` 9 `num` +")
+            await ctx.send(embed=e, delete_after=60)
+            return
+
+        e = discord.Embed()
+        e.color = await discord.Embed(color=discord.Color(value=0x00ff00))
+        e.add_field(name='Input:', value=f'```{formula}```', inline=True)
+        e.add_field(name='Result:', value=f'```{round(answer, 2)}```', inline=True)
+        await ctx.send(embed=e)        
+        
+        
 @bot.command(pass_context=True, hidden=True, name='eval')
 @commands.is_owner()
 async def _eval(ctx, *, body: str):
