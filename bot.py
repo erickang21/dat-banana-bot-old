@@ -59,7 +59,7 @@ async def ping(ctx):
     
 @bot.command()
 async def add(ctx, num: int, num2: int):
-    await ctx.send(All done :nerd: : num + num2)    
+    await ctx.send(num + num2)    
     
         
 @bot.command()
