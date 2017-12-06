@@ -7,8 +7,7 @@ import operator
 from discord.ext import commands
 
 
-class math:
-
+class Math:
     def __init__(self, bot):
         self.bot = bot
 
