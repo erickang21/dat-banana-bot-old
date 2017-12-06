@@ -33,6 +33,12 @@ async def dm(ctx, user: discord.Member, *, msg: str):
     except:
         await ctx.send("Error :x:. Make sure your message is shaped in this way: *dm [tag person] [msg]")
         
+@bot.command()
+@commands.has_permissions(kick_members = True)
+async def kick(ctx, user: discord.Member):
+        await ctx.channel.send(f"Bye! {user.name} close the door on the way out :door:.")
+        await user.kick()
+        
 @bot.event
 async def on_guild_join(guild):
     print("Banana has joined a new guild: {}".format(guild.name))
