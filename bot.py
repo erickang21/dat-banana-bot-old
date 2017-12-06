@@ -36,7 +36,7 @@ async def dm(ctx, user: discord.Member, *, msg: str):
 @bot.command()
 @commands.has_permissions(kick_members = True)
 async def kick(ctx, user: discord.Member):
-        await ctx.channel.send(f"Bye! {user.name} close the door on the way out :door:.")
+        await ctx.channel.send(f"Be gone {user.name}! Oh, and close the door on the way out :door:.")
         await user.kick()
         
 @bot.event
@@ -67,7 +67,7 @@ async def on_ready():
 @bot.command()
 @commands.has_permissions(ban_members = True)
 async def ban(ctx, user: discord.Member):
-        await ctx.channel.send(f"Banned {user.name} close the door on the way out :door: .")
+        await ctx.channel.send(f"The ban hammer has fallen. And it has struck {user.name}.")
         await user.ban()
    
 
