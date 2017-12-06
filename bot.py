@@ -4,7 +4,6 @@ import io
 import textwrap
 from contextlib import redirect_stdout
 import traceback
-import asyncio
 from discord.ext import commands 
 bot = commands.Bot(command_prefix='*',description="It's a something bot made by dat banana boi #1982.\n\nHelp Commands",owner_id=277981712989028353)
 bot.load_extension("cogs.math")
@@ -24,11 +23,15 @@ async def on_ready():
 
 
 @bot.command()
-async def dm(ctx, user: int, *, msg: str):
-    lol = bot.get_user(user)
-    await lol.send(msg)
-
+async def dm(ctx, user: discord.Member, *, msg: str):
+    """Escort your DM to someone thru the bot. Usage: *dm [tag person] [msg]"""
+    try:
+        await user.send(msg)
+        await ctx.send("SuccESS! Your DM has made it! :white_check_mark: ")
+    except:
+        await ctx.send("Error :x:. Make sure your message is shaped in this way: *dm [tag person] [msg]")
    
+
 @bot.command()
 async def readycheck(ctx):
     """I dare you to guess. I mean, like, to see if I'm working."""
@@ -129,28 +132,6 @@ async def _eval(ctx, *, body: str):
                     await ctx.send(f'```py\n{value}\n```')
             else:
                 await ctx.send(f'```py\n{value}{ret}\n```')
-                
-                
-@bot.event
-async def on_ready():
-        """Shows bot's status"""
-        print("Logged in as:")
-        print("Name : {}".format(bot.user.name))
-        print("ID : {}".format(bot.user.id))
-        print("----------------")
-        server = len(bot.guilds)
-        users = sum(1 for _ in bot.get_all_members())
-        while 1==1:
-            await bot.change_presence(game=discord.Game(name='with {} servers'.format(server)))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='with {} users'.format(users)))
-            await asyncio.sleep(10)                         
-            await bot.change_presence(game=discord.Game(name='PREFIX = *'))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='*help'))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='Bananabot!'))
-            await asyncio.sleep(25)
    
 
 if not os.environ.get('TOKEN'):
