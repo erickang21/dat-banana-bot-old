@@ -1,4 +1,3 @@
-import discord
 import os
 import io
 import textwrap
@@ -6,7 +5,7 @@ from contextlib import redirect_stdout
 import traceback
 from discord.ext import commands 
 bot = commands.Bot(command_prefix='*',description="It's a something bot made by dat banana boi #1982.\n\nHelp Commands",owner_id=277981712989028353)
-
+bot.load_extension("cogs.Math")
 
 def cleanup_code(content):
     """Automatically removes code blocks from the code."""
@@ -55,42 +54,6 @@ async def ping(ctx):
     em.title = "PoIIIIng! That took:"
     em.description = f'{bot.ws.latency * 1000:.4f} ms'
     await ctx.send(embed=em)
-
-    
-@bot.command()
-async def add(ctx, num: int, num2: int):
-    '''It...ADDS? Yea. Usage: *add [no.1] [no.2]'''
-    if num is None:
-        await ctx.send("Aren't you stupid enough? Usage: *add [no.1] [no.2]")
-    else:
-        await ctx.send(num + num2)
-        
-        
-@bot.command()
-async def subtract(ctx, num: int, num2: int):
-    '''It...SUBTRACTS? Yea. Usage: *subtract [no.1] [no.2]'''
-    if num is None:
-        await ctx.send("Aren't you stupid enough? Usage: *subtract [no.1] [no.2]")
-    else:
-        await ctx.send(num - num2)
-        
-        
-@bot.command()
-async def multiply (ctx, num: int, num2: int):
-    '''It...MULTIPLIES? Yea. Usage: *multiply [no.1] [no.2]'''
-    if num is None:
-        await ctx.send("Aren't you stupid enough? Usage: *multiply [no.1] [no.2]")
-    else:
-        await ctx.send(num * num2)
-        
-        
-@bot.command()
-async def divide (ctx, num: int, num2: int):
-    '''It...DIVIDES? Yea. Usage: *divide [no.1] [no.2]'''
-    if num is None:
-        await ctx.send("Aren't you stupid enough? Usage: *divide [no.1] [no.2]")
-    else:
-        await ctx.send(num / num2)
 
         
 @bot.command()
