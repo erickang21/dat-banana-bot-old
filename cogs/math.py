@@ -10,40 +10,40 @@ class Math:
         self.bot = bot
 
 
-@commands.command()
-async def add(self, ctx, num: int, num2: int):
-        '''It...ADDS? Yea. Usage: *add [no.1] [no.2]'''
-        if num is None:
-            await ctx.send("Aren't you stupid enough? Usage: *add [no.1] [no.2]")
-        else:
-            await ctx.send(num + num2)
+    @commands.command()
+    async def add(self, ctx, num: int, num2: int):
+            '''It...ADDS? Yea. Usage: *add [no.1] [no.2]'''
+            if num is None:
+                await ctx.send("Aren't you stupid enough? Usage: *add [no.1] [no.2]")
+            else:
+                await ctx.send(num + num2)
         
         
-@commands.command()
-async def subtract(self, ctx, num: int, num2: int):
-        '''It...SUBTRACTS? Yea. Usage: *subtract [no.1] [no.2]'''
-        if num is None:
-            await ctx.send("Aren't you stupid enough? Usage: *subtract [no.1] [no.2]")
-        else:
-            await ctx.send(num - num2)
+    @commands.command()
+    async def subtract(self, ctx, num: int, num2: int):
+            '''It...SUBTRACTS? Yea. Usage: *subtract [no.1] [no.2]'''
+            if num is None:
+                await ctx.send("Aren't you stupid enough? Usage: *subtract [no.1] [no.2]")
+            else:
+                await ctx.send(num - num2)
         
         
-@commands.command()
-async def multiply (self, ctx, num: int, num2: int):
-        '''It...MULTIPLIES? Yea. Usage: *multiply [no.1] [no.2]'''
-        if num is None:
-            await ctx.send("Aren't you stupid enough? Usage: *multiply [no.1] [no.2]")
-        else:
-            await ctx.send(num * num2)
+    @commands.command()
+    async def multiply (self, ctx, num: int, num2: int):
+            '''It...MULTIPLIES? Yea. Usage: *multiply [no.1] [no.2]'''
+            if num is None:
+                await ctx.send("Aren't you stupid enough? Usage: *multiply [no.1] [no.2]")
+            else:
+                await ctx.send(num * num2)
         
         
-@commands.command()
-async def divide (self, ctx, num: int, num2: int):
-        '''It...DIVIDES? Yea. Usage: *divide [no.1] [no.2]'''
-        if num is None:
-            await ctx.send("Aren't you stupid enough? Usage: *divide [no.1] [no.2]")
-        else:
-            await ctx.send(num / num2)
+    @commands.command()
+    async def divide (self, ctx, num: int, num2: int):
+            '''It...DIVIDES? Yea. Usage: *divide [no.1] [no.2]'''
+            if num is None:
+                await ctx.send("Aren't you stupid enough? Usage: *divide [no.1] [no.2]")
+            else:
+                await ctx.send(num / num2)
 
 
 def setup(bot): 
