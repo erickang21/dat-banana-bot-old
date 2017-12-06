@@ -63,7 +63,12 @@ async def on_ready():
             await asyncio.sleep(10)
             await bot.change_presence(game=discord.Game(name='Banana bot!'))
             await asyncio.sleep(25)
-
+            
+@bot.command()
+@commands.has_permissions(ban_members = True)
+async def ban(ctx, user: discord.Member):
+        await ctx.channel.send(f"Banned {user.name} close the door on the way out :door: .")
+        await user.ban()
    
 
 @bot.command()
