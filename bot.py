@@ -7,7 +7,7 @@ from contextlib import redirect_stdout
 import traceback
 from discord.ext import commands 
 bot = commands.Bot(command_prefix='*',description="It's a something bot made by dat banana boi #1982.\n\nHelp Commands",owner_id=277981712989028353)
-bot.load_extension("cogs.Math")
+bot.load_extension("cogs.math")
 
 def cleanup_code(content):
     """Automatically removes code blocks from the code."""
