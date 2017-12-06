@@ -25,15 +25,6 @@ def cleanup_code(content):
 async def on_ready():
    print('Bot is online!') 
 
-
-@bot.command()
-async def dm(ctx, user: discord.Member, *, msg: str):
-    """Escort your DM to someone thru the bot. Usage: *dm [tag person] [msg]"""
-    try:
-        await user.send(msg)
-        await ctx.send("SuccESS! Your DM has made it! :white_check_mark: ")
-    except:
-        await ctx.send("Error :x:. Make sure your message is shaped in this way: *dm [tag person] [msg]")
         
 @bot.command()
 @commands.has_permissions(kick_members = True)
