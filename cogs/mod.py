@@ -25,16 +25,16 @@ class mod:
     @commands.has_permissions(kick_members = True)
     async def kick(self, ctx, user: discord.Member):
         """Kicks a member into the world outside your server."""
-            await ctx.channel.send(f"Be gone {user.name}! Oh, and close the door on the way out :door:.")
-            await user.kick()
+        await ctx.channel.send(f"Be gone {user.name}! Oh, and close the door on the way out :door:.")
+        await user.kick()
             
             
     @commands.command()
     @commands.has_permissions(ban_members = True)
     async def ban(self, ctx, user: discord.Member):
         """Swings the mighty Ban Hammer on that bad boy."""
-            await ctx.channel.send(f"The ban hammer has fallen. And it has struck {user.name}.")
-            await user.ban()
+        await ctx.channel.send(f"The ban hammer has fallen. And it has struck {user.name}.")
+        await user.ban()
             
             
 def setup(bot): 
