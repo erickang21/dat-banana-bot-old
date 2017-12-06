@@ -90,7 +90,7 @@ async def divide (ctx, num: int, num2: int):
     if num is None:
         await ctx.send("Aren't you stupid enough? Usage: *divide [no.1] [no.2]")
     else:
-        await ctx.send(num / num2, R= num % num2)
+        await ctx.send(num / num2)
 
         
 @bot.command()
