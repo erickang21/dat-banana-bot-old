@@ -26,11 +26,6 @@ async def on_ready():
    print('Bot is online!') 
 
         
-@bot.command()
-@commands.has_permissions(kick_members = True)
-async def kick(ctx, user: discord.Member):
-        await ctx.channel.send(f"Be gone {user.name}! Oh, and close the door on the way out :door:.")
-        await user.kick()
         
 @bot.event
 async def on_guild_join(guild):
@@ -57,12 +52,6 @@ async def on_ready():
             await bot.change_presence(game=discord.Game(name='Banana bot!'))
             await asyncio.sleep(25)
             
-@bot.command()
-@commands.has_permissions(ban_members = True)
-async def ban(ctx, user: discord.Member):
-        await ctx.channel.send(f"The ban hammer has fallen. And it has struck {user.name}.")
-        await user.ban()
-   
 
 @bot.command()
 async def readycheck(ctx):
