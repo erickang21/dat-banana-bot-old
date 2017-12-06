@@ -8,7 +8,6 @@ import datetime
 import asyncio
 import aiohttp
 import pip
-import psutil
 import random
 import textwrap
 from contextlib import redirect_stdout
