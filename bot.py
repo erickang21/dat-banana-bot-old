@@ -85,7 +85,7 @@ async def multiply (ctx, num: int, num2: int):
         
         
 @bot.command()
-async def divide (ctx, num: int, num2: int)
+async def divide (ctx, num: int, num2: int):
     '''It...DIVIDES? Yea. Usage: *divide [no.1] [no.2]'''
     if num is None:
         await ctx.send("Aren't you stupid enough? Usage: *divide [no.1] [no.2]")
