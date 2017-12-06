@@ -2,7 +2,6 @@ import discord
 import os
 import io
 import traceback
-import wikipedia
 import sys
 import time
 import datetime
