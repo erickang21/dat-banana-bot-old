@@ -7,7 +7,7 @@ import operator
 from discord.ext import commands
 
 
-class Math:
+class math:
 
     def __init__(self, bot):
         self.bot = bot
@@ -49,4 +49,4 @@ async def divide (ctx, self, num: int, num2: int):
 
 
 def setup(bot): 
-    bot.add_cog(Math(bot))            
+    bot.add_cog(math(bot))            
