@@ -11,7 +11,7 @@ class ErrorHandler:
 	async def on_command_error(self, ctx, error):
 			if isinstance (error, commands.CommandNotFound):
 				embed = discord.Embed(title = "Error - Command not found!",
-                                      description = "**" + ctx.author.name + "**, to view all my commands use: %help", color = failcolor)
+                                      description = "**" + ctx.author.name + "**, to view all my commands use: *help", color = failcolor)
 				embed.set_author(name=f"{ctx.author.display_name}", icon_url=f"{ctx.author.avatar_url}")
 				embed.add_field(name="Command Used: ", value = ctx.message.content)
 				await ctx.send(embed = embed)
