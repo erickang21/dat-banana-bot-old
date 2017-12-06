@@ -1,6 +1,8 @@
 import os
 import io
 import textwrap
+import math
+import operator
 from contextlib import redirect_stdout
 import traceback
 from discord.ext import commands 
