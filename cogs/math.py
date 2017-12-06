@@ -5,7 +5,7 @@ import io
 from discord.ext import commands
 
 
-class Math:
+class math:
     def __init__(self, bot):
         self.bot = bot
 
