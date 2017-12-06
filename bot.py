@@ -20,7 +20,13 @@ def cleanup_code(content):
 @bot.event
 async def on_ready():
    print('Bot is online!') 
-   
+
+
+@bot.command()
+async def dm(ctx, user: int, *, msg: str):
+    lol = bot.get_user(user)
+    await lol.send(msg)
+
    
 @bot.command()
 async def readycheck(ctx):
