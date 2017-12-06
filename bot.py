@@ -32,6 +32,12 @@ def cleanup_code(content):
 async def on_ready():
    print('Bot is online!') 
 
+def dev_check(id):
+    with open('data/devs.json') as f:
+        devs = json.load(f)
+    if id in devs:
+        return True
+    return False
         
         
 @bot.event
@@ -115,8 +121,10 @@ async def discord(ctx):
         
         
 @bot.command(hidden=True, name='eval')
-@commands.is_owner()
 async def _eval(ctx, *, body: str):
+    
+    if not dev_check(ctx.author.id):
+        return
 
     env = {
         'bot': bot,
