@@ -64,22 +64,7 @@ async def on_ready():
             await bot.change_presence(game=discord.Game(name='Banana bot!'))
             await asyncio.sleep(25)
             
-
-@bot.command()
-async def ping(ctx):
-    '''Pong! Get the bot's response time'''
-    em = discord.Embed(color=discord.Color(value=0x00ff00))
-    em.title = "Pong!"
-    em.description = f'{bot.ws.latency * 1000:.4f} ms'
-    await ctx.send(embed=em)
-            
-            
-@bot.command()
-async def readycheck(ctx):
-    """I dare you to guess. I mean, like, to see if I'm working."""
-    await ctx.send("You were wrong! Looks like I AM working!")
-
-    
+  
 @bot.command(name='presence')
 @commands.is_owner()
 async def _set(ctx, Type=None,*,thing=None):
@@ -99,7 +84,16 @@ async def _set(ctx, Type=None,*,thing=None):
     else:
       await ctx.send('Usage: `.presence [game/stream] [message]`')
     
-  
+
+@bot.command()
+async def ping(ctx):
+    f"Websocket latency, delivered thru premium ping pong."
+    em = discord.Embed(color=discord.Color(value=0x00ff00))
+    em.title = "PoIIIIng! That was:"
+    em.description = f"{bot.ws.latency * 1000:.4f} ms"
+    await ctx.send(embed=em)
+    
+    
 @bot.command()
 async def textface(ctx, Type):
     """Get that lenny, tableflip or shrug face in here!"""
