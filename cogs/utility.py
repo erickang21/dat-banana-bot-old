@@ -19,4 +19,4 @@ class utility:
         await ctx.send(embed=em)
     
 def setup(bot): 
-    bot.add_cog(Utility(bot))
+    bot.add_cog(utility(bot))
