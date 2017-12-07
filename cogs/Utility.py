@@ -18,6 +18,5 @@ class utility:
         em.description = f'{bot.ws.latency * 1000:.4f} ms'
         await ctx.send(embed=em)
     
-    
 def setup(bot): 
-    bot.add_cog(Utility(bot))           
+    bot.add_cog(Utility(bot))
