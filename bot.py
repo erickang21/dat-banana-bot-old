@@ -17,6 +17,7 @@ bot = commands.Bot(command_prefix='*',description="It's a something bot made by 
 bot.load_extension("cogs.math")
 bot.load_extension("cogs.Errorhandler")
 bot.load_extension("cogs.mod")
+bot.load_extension("cogs.utility")
 
 
 def cleanup_code(content):
@@ -65,16 +66,7 @@ async def on_ready():
             await bot.change_presence(game=discord.Game(name='Banana bot!'))
             await asyncio.sleep(25)
             
-            
-@bot.command()
-async def ping(ctx):
-    """Websocket latency, delivered through premium ping pong."""
-    em = discord.Embed(color=discord.Color(value=0x00ff00))
-    em.title = "PoIIIIng! That took:"
-    em.description = f'{bot.ws.latency * 1000:.4f} ms'
-    await ctx.send(embed=em)            
-            
-
+                        
 @bot.command()
 async def readycheck(ctx):
     """I dare you to guess. I mean, like, to see if I'm working."""
