@@ -65,6 +65,15 @@ async def on_ready():
             await bot.change_presence(game=discord.Game(name='Banana bot!'))
             await asyncio.sleep(25)
             
+            
+@bot.command()
+async def ping(ctx):
+    """Websocket latency, delivered through premium ping pong."""
+    em = discord.Embed(color=discord.Color(value=0x00ff00))
+    em.title = "PoIIIIng! That took:"
+    em.description = f'{bot.ws.latency * 1000:.4f} ms'
+    await ctx.send(embed=em)            
+            
 
 @bot.command()
 async def readycheck(ctx):
@@ -92,13 +101,6 @@ async def _set(ctx, Type=None,*,thing=None):
       await ctx.send('Usage: `.presence [game/stream] [message]`')
     
   
-@bot.command()
-async def ping(ctx):
-    """Websocket latency, delivered through premium ping pong."""
-    em = discord.Embed(color=discord.Color(value=0x00ff00))
-    em.title = "PoIIIIng! That took:"
-    em.description = f'{bot.ws.latency * 1000:.4f} ms'
-    await ctx.send(embed=em)
 
         
 @bot.command()
