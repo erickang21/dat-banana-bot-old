@@ -10,8 +10,8 @@ class utility:
         self.bot = bot
         
         
-    @bot.command()
-    async def ping(ctx):
+    @commands.command()
+    async def ping(self, ctx):
         "Websocket latency, delivered through premium ping pong."""
         em = discord.Embed(color=discord.Color(value=0x00ff00))
         em.title = "PoIIIIng! That took:"
