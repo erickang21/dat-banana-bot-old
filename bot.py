@@ -17,7 +17,7 @@ bot = commands.Bot(command_prefix='*',description="It's a something bot made by 
 bot.load_extension("cogs.math")
 bot.load_extension("cogs.Errorhandler")
 bot.load_extension("cogs.mod")
-bot.load_extension("cogs.Utility")
+bot.load_extension("cogs.utility")
 
 
 def cleanup_code(content):
