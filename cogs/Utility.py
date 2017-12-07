@@ -20,4 +20,4 @@ class utility:
     
     
 def setup(bot): 
-    bot.add_cog(utility(bot))           
+    bot.add_cog(Utility(bot))           
