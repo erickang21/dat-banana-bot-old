@@ -64,6 +64,41 @@ async def on_ready():
             await bot.change_presence(game=discord.Game(name='Banana bot!'))
             await asyncio.sleep(25)
             
+@bot.command()
+async def roleinfo(ctx, *, name: str):
+        """Gets information on a role, warning, it might take up the entire screen"""
+        if name is not None:
+            role = discord.utils.get(ctx.message.guild.roles, name=name)
+            if role is None:
+                embed = discord.Embed(description="`{}` isn't real. Or is it? :thinking:\nThe command is case-senstitve.\nFix any typos and try again".format(name),color=failcolor)
+                embed.set_author(name=f"{ctx.author.display_name}", icon_url=f"{ctx.author.avatar_url}")
+                await ctx.send(embed=embed)
+                return
+            color = role.color
+            if color == discord.Color(value=0x000000):
+                color = "None"
+            count = len(
+                [member for member in ctx.message.guild.members if discord.utils.get(member.roles, name=role.name)])
+            perms = role.permissions
+            permlist = "Can ban members: {}\nCan change nickname: {}\nCan connect to voice channels: {}\nCan create instant " \
+                       "invites: {}\nCan deafen members: {}\nCan embed links: {}\nCan use external emojis: {}\nCan manage channel: {}" \
+                       "\nCan manage emojis: {}\nCan manage messages: {}\nCan manage nicknames: {}\nCan manage roles: {}" \
+                       "\nCan manage server: {}\nCan mention everyone: {}\nCan move members: {}\nCan mute members: {}" \
+                       "\nCan read message history: {}\nCan send messages: {}\nCan speak: {}\nCan use voice activity: {}" \
+                       "\nCan manage webbooks: {}\nCan add reactions: {}".format(
+                perms.ban_members, perms.change_nickname, perms.connect, perms.create_instant_invite, perms.deafen_members,
+                perms.embed_links, perms.external_emojis, perms.manage_channels, perms.manage_emojis, perms.manage_messages,
+                perms.manage_nicknames, perms.manage_roles, perms.manage_guild, perms.mention_everyone, perms.move_members,
+                perms.mute_members, perms.read_message_history, perms.send_messages, perms.speak,
+                perms.use_voice_activation, perms.manage_webhooks, perms.add_reactions)
+            embed = discord.Embed(description="**Name: \"{}\"**\n**ID: {}**\n**Color: {}**\nPosition: {}\nUser count: {}\nMentionable: {}\nDisplay separately: {}\n".format(
+                    role.name, role.id, color, role.position, count, role.mentionable, role.hoist) + permlist, color=passcolor)
+            await ctx.send(embed=embed)
+        else:
+            embed = discord.Embed(description="You need to specify a valid rolename :facepalm:",color=passcolor)
+            embed.set_author(name=f"{ctx.author.display_name}", icon_url=f"{ctx.author.avatar_url}")
+            await ctx.send(embed=embed)
+            
   
 @bot.command(name='presence')
 @commands.is_owner()
