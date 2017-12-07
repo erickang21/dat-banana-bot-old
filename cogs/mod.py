@@ -36,8 +36,8 @@ class mod:
         await ctx.channel.send(f"The ban hammer has fallen. And it has struck {user.name}.")
         await user.ban()
         
-@commands.command()
-async def serverinfo(self, ctx):
+    @commands.command()
+    async def serverinfo(self, ctx):
         """Displays Info About The Server!"""
         guild = ctx.guild 
         roles = [x.name for x in guild.roles] 
