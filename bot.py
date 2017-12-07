@@ -68,7 +68,7 @@ async def on_ready():
 async def roleinfo(ctx, *, name: str):
         """Gets information on a role, warning, it might take up the entire screen"""
         if name is not None:
-            role = discord.utils.get(ctx.message.guild.roles, name=name)
+            role = discord.bot.get(ctx.message.guild.roles, name=name)
             if role is None:
                 embed = discord.Embed(description="`{}` isn't real. Or is it? :thinking:\nThe command is case-senstitve.\nFix any typos and try again".format(name),color=failcolor)
                 embed.set_author(name=f"{ctx.author.display_name}", icon_url=f"{ctx.author.avatar_url}")
