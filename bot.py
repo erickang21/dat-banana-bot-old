@@ -93,6 +93,22 @@ async def _set(ctx, Type=None,*,thing=None):
     
     
 @bot.command()
+async def textface(ctx):
+    """Get that lenny, tableflip or shrug face in here!"""
+    if Type is None:
+        await ctx.send('That is NOT a textface! Usage: *textface [lenny/tableflip/shrug]')
+    else:
+        if Type.lower() == 'lenny':
+          await ctx.send('( ° ʖ °)')
+        elif Type.lower() == 'tableflip':
+          await ctx.send('(ノಠ益ಠ)ノ彡┻━┻')
+        elif Type.lower() == 'shrug':
+          await ctx.send('¯\_(ツ)_/¯')
+        else:
+          await ctx.send('That is NOT a textface! Usage: *textface [lenny/tableflip/shrug]')
+    
+    
+@bot.command()
 async def ping(ctx):
     """Websocket latency, delivered through premium ping pong."""
     em = discord.Embed(color=discord.Color(value=0x00ff00))
