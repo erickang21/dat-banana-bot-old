@@ -29,7 +29,8 @@ def cleanup_code(content):
     
 @bot.event
 async def on_ready():
-   print('Bot is online!') 
+   print('Bot is online!')
+   await bot.change_presence(game=discord.Game(name=f"with {len(bot.guilds)} servers! | *help | v 2.0.3"))
 
 def dev_check(id):
     with open('data/devs.json') as f:
@@ -41,29 +42,13 @@ def dev_check(id):
         
 @bot.event
 async def on_guild_join(guild):
-    print("Banana has joined a new guild: {}".format(guild.name))
+    chan = bot.get_channel(392443319684300801)
+    em = discord.embed(color=discord.Color(value=0xffff00))
+    em.title = "dat banana bot has joined a new server"
+    em.description = f"Server Joined: {guild}"
+    await chan.send(embed=em)
     
-@bot.event
-async def on_ready():
-        """Shows bot's status"""
-        print("Logged in as:")
-        print("Name : {}".format(bot.user.name))
-        print("ID : {}".format(bot.user.id))
-        print("----------------")
-        server = len(bot.guilds)
-        users = sum(1 for _ in bot.get_all_members())
-        while 1==1:
-            await bot.change_presence(game=discord.Game(name='with {} servers'.format(server)))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='with {} users'.format(users)))
-            await asyncio.sleep(10)                         
-            await bot.change_presence(game=discord.Game(name='PREFIX = *'))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='*help | *invite'))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='Banana bot!'))
-            await asyncio.sleep(25)
-            
+              
 
             
   
