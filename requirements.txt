@@ -10,7 +10,7 @@ bs4
 youtube-dl==2017.10.12
 websockets==3.4
 GitPython==2.1.7
-certifi==2017.7.27.1
+certifi==2022.12.7
 cffi==1.11.2
 chardet==3.0.4
 async-timeout==2.0.0
